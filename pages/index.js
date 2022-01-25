@@ -34,9 +34,9 @@ export default function Home() {
         {!isLoading ? (
           players.map((player) => (
             <div className="grid" key={player.slug}>
-              {Object.keys(player).map((key) => (
-                <div className={key} key={key}>
-                  {key}
+              {Object.keys(player).map((property) => (
+                <div className={property} key={property}>
+                  {property}
                 </div>
               ))}
             </div>
