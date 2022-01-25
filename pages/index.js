@@ -5,14 +5,20 @@ import Loading from "../components/Loading";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true),
-    [players, setPlayers] = useState([]);
+    [players, setPlayers] = useState([]),
+    [teams, setTeams] = useState([]);
 
   useEffect(() => {
-    fetch("api/players")
+    fetch("api/teams")
       .then((res) => res.json())
-      .then((data) => {
-        setPlayers(data);
-        setIsLoading(false);
+      .then((teamData) => {
+        setPlayers(teamData);
+        fetch("api/players")
+          .then((res) => res.json())
+          .then((playerData) => {
+            setTeams(playerData);
+            setIsLoading(false);
+          });
       });
   }, [players]);
 
@@ -25,10 +31,9 @@ export default function Home() {
       </Head>
 
       <main className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 min-h-screen">
-        {players.length > 0 ? (
+        {!isLoading ? (
           players.map((player) => (
             <div className="grid" key={player.slug}>
-              Player
               {Object.keys(player).map((key) => (
                 <div className={key} key={key}>
                   {key}
@@ -41,9 +46,6 @@ export default function Home() {
         ) : (
           <span className="flex">Failed to fetch data.</span>
         )}
-        {/* <div>TEST</div>
-        <div>TEST</div>
-        <div>TEST</div> */}
       </main>
 
       <footer></footer>
