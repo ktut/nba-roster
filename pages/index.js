@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import Loading from "../components/Loading";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true),
@@ -28,21 +29,15 @@ export default function Home() {
           players.map((player) => (
             <div className="grid" key={player.slug}>
               Player
-              <div className="pid"></div>
-              <div className="tid"></div>
-              <div className="ln"></div>
-              <div className="fn"></div>
-              <div className="num"></div>
-              <div className="pos"></div>
-              <div className="pts"></div>
-              <div className="reb"></div>
-              <div className="ast"></div>
-              <div className="stl"></div>
-              <div className="headshot"></div>
+              {Object.keys(player).map((key) => (
+                <div className={key} key={key}>
+                  {key}
+                </div>
+              ))}
             </div>
           ))
         ) : isLoading ? (
-          <span className="flex">Loading</span>
+          <Loading />
         ) : (
           <span className="flex">Failed to fetch data.</span>
         )}
