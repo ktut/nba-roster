@@ -34,7 +34,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex flex-wrap min-h-screen">
+      <main className="grid min-h-screen gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {!isLoading ? (
           players.map((player) => (
             <Card

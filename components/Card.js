@@ -1,9 +1,6 @@
 export default function Card(props) {
   return (
-    <div
-      className="p-8 rounded-md drop-shadow-md sm:w-full md:w-1/2 lg:w-1/3"
-      key={props.player.slug}
-    >
+    <div className="w-full p-8 rounded-md shadow-lg" key={props.player.slug}>
       <div className="flex">
         Top
         <img
