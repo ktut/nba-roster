@@ -2,21 +2,25 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Loading from "../components/Loading";
+import Card from "../components/Card";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true),
     [players, setPlayers] = useState([]),
-    [teams, setTeams] = useState([]);
+    [teams, setTeams] = useState([]),
+    getTeamImage = (teamSlug) => {
+      return teams.find((team) => team.ta === teamSlug).logo;
+    };
 
   useEffect(() => {
     fetch("api/teams")
       .then((res) => res.json())
       .then((teamData) => {
-        setPlayers(teamData);
+        setTeams(teamData);
         fetch("api/players")
           .then((res) => res.json())
           .then((playerData) => {
-            setTeams(playerData);
+            setPlayers(playerData);
             setIsLoading(false);
           });
       });
@@ -33,13 +37,11 @@ export default function Home() {
       <main className="flex flex-wrap min-h-screen">
         {!isLoading ? (
           players.map((player) => (
-            <div className="sm:w-full md:w-1/2 lg:w-1/3" key={player.slug}>
-              {Object.keys(player).map((property) => (
-                <div className={property} key={property}>
-                  {property}
-                </div>
-              ))}
-            </div>
+            <Card
+              player={player}
+              key={player.slug}
+              teamImage={getTeamImage(player.ta)}
+            />
           ))
         ) : isLoading ? (
           <Loading />
