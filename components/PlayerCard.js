@@ -4,14 +4,22 @@ export default function PlayerCard(props) {
       className="flex flex-col w-full rounded-md shadow-lg"
       key={props.player.slug}
     >
-      <div className="relative flex">
+      <div className="relative flex items-center">
         <img
-          className="w-260 h-190"
+          className="h-auto w-160"
           src={props.player.headshot}
           alt={`${props.player.ta} logo`}
         />
+        <figcaption>
+          <div className="text-sm">
+            #{props.player.num} | {props.player.pos}
+          </div>
+          <div className="text-xl font-bold">
+            {props.player.fn} {props.player.ln}
+          </div>
+        </figcaption>
         <img
-          className="absolute w-16 top-8 right-8"
+          className="absolute w-10 top-2 right-2"
           src={props.teamImage}
           alt={`${props.player.ta} logo`}
         />
