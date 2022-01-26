@@ -30,10 +30,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 min-h-screen">
+      <main className="flex flex-wrap min-h-screen">
         {!isLoading ? (
           players.map((player) => (
-            <div className="grid" key={player.slug}>
+            <div className="sm:w-full md:w-1/2 lg:w-1/3" key={player.slug}>
               {Object.keys(player).map((property) => (
                 <div className={property} key={property}>
                   {property}
