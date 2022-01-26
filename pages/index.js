@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Loading from "../components/Loading";
-import Card from "../components/Card";
+import PlayerCard from "../components/PlayerCard";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true),
@@ -34,10 +34,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="grid min-h-screen gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <main className="grid min-h-screen gap-4 p-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {!isLoading ? (
           players.map((player) => (
-            <Card
+            <PlayerCard
               player={player}
               key={player.slug}
               teamImage={getTeamImage(player.ta)}
