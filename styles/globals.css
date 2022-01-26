@@ -149,3 +149,9 @@ a {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
+
+/* styles tailwind is supposed to have, but do not render properly: */
+.drop-shadow-md {
+  filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
+    drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+}
