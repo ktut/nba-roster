@@ -1,16 +1,31 @@
 export default function Card(props) {
   return (
-    <div className="sm:w-full md:w-1/2 lg:w-1/3 p-8" key={props.slug}>
+    <div
+      className="p-8 rounded-md drop-shadow-md sm:w-full md:w-1/2 lg:w-1/3"
+      key={props.player.slug}
+    >
       <div className="flex">
         Top
-        <img src={props.teamImage} />
+        <img
+          className="w-40"
+          src={props.teamImage}
+          alt={`${props.player.ta} logo`}
+        />
       </div>
-      <div className="flex">BOTTOM</div>
-      {Object.keys(props.player).map((property) => (
-        <div className={property} key={property}>
-          {property}
+      <div className="flex text-center border-t-8 border-blue-800 border-solid">
+        <div className="flex flex-col justify-center w-1/3 border-r-2 border-gray-400 border-solid align-center p8">
+          <div className="p-1">PPG</div>
+          <div className="p-1 font-bold">{props.player.pts}</div>
         </div>
-      ))}
+        <div className="flex flex-col justify-center w-1/3 border-r-2 border-gray-400 border-solid align-center p8">
+          <div className="p-1">PPG</div>
+          <div className="p-1 font-bold">{props.player.reb}</div>
+        </div>
+        <div className="flex flex-col justify-center w-1/3 align-center p8">
+          <div className="p-1">PPG</div>
+          <div className="p-1 font-bold">{props.player.ast}</div>
+        </div>
+      </div>
     </div>
   );
 }
