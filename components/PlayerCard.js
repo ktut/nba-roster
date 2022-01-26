@@ -6,7 +6,7 @@ export default function PlayerCard(props) {
     >
       <div className="relative flex items-center flex-auto overflow-hidden">
         <img
-          className="self-end h-auto nba-player-image"
+          className="self-end object-cover h-32 nba-player-image"
           src={props.player.headshot}
           alt={`${props.player.ta} logo`}
         />
