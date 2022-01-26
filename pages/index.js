@@ -10,6 +10,9 @@ export default function Home() {
     [teams, setTeams] = useState([]),
     getTeamImage = (teamSlug) => {
       return teams.find((team) => team.ta === teamSlug).logo;
+    },
+    getTeamColor = (teamSlug) => {
+      return teams.find((team) => team.ta === teamSlug).color;
     };
 
   useEffect(() => {
@@ -41,6 +44,7 @@ export default function Home() {
               player={player}
               key={player.slug}
               teamImage={getTeamImage(player.ta)}
+              teamColor={getTeamColor(player.ta)}
             />
           ))
         ) : isLoading ? (

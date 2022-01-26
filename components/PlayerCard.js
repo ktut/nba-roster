@@ -4,14 +4,14 @@ export default function PlayerCard(props) {
       className="flex flex-col w-full rounded-md shadow-lg"
       key={props.player.slug}
     >
-      <div className="relative flex items-center">
+      <div className="relative flex items-center flex-auto overflow-hidden">
         <img
-          className="h-auto w-160"
+          className="self-end h-auto nba-player-image"
           src={props.player.headshot}
           alt={`${props.player.ta} logo`}
         />
-        <figcaption>
-          <div className="text-sm">
+        <figcaption className="nba-player-figcaption">
+          <div className="text-sm text-gray-400">
             #{props.player.num} | {props.player.pos}
           </div>
           <div className="text-xl font-bold">
@@ -24,7 +24,10 @@ export default function PlayerCard(props) {
           alt={`${props.player.ta} logo`}
         />
       </div>
-      <div className="flex text-center border-t-8 border-blue-800 border-solid">
+      <div
+        className={`flex flex-none text-center border-t-8 border-solid`}
+        style={{ borderColor: props.teamColor }}
+      >
         <div className="flex flex-col justify-center w-1/3 p-2 border-r-2 border-gray-400 border-solid align-center">
           <div className="p-1">PPG</div>
           <div className="p-1 font-bold">{props.player.pts}</div>

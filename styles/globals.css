@@ -149,3 +149,11 @@ a {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
+
+.nba-player-image {
+  flex: 0 1 160px;
+}
+
+.nba-player-figcaption {
+  flex: 0 0 auto;
+}
