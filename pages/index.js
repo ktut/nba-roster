@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
-import Image from "next/image";
-import Loading from "../components/Loading";
 import PlayerCard from "../components/PlayerCard";
 
 export default function Home() {
@@ -37,7 +35,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="grid min-h-screen gap-4 p-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <main className="grid min-h-screen gap-8 p-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {!isLoading ? (
           players.map((player) => (
             <PlayerCard
@@ -48,9 +46,11 @@ export default function Home() {
             />
           ))
         ) : isLoading ? (
-          <Loading />
+          <div className="text-xl font-bold text-center">Loading...</div>
         ) : (
-          <span className="flex">Failed to fetch data.</span>
+          <div className="text-xl font-bold text-center">
+            Failed to fetch data.
+          </div>
         )}
       </main>
 

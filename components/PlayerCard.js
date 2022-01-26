@@ -6,6 +6,13 @@ export default function PlayerCard(props) {
     >
       <div className="relative flex items-center flex-auto overflow-hidden">
         <img
+          loading="lazy"
+          className="absolute nba-team-background"
+          src={props.teamImage}
+          alt={`${props.player.ta} logo greyed out`}
+        />
+        <img
+          loading="lazy"
           className="self-end object-cover h-32 nba-player-image"
           src={props.player.headshot}
           alt={`${props.player.ta} logo`}
@@ -19,6 +26,7 @@ export default function PlayerCard(props) {
           </div>
         </figcaption>
         <img
+          loading="lazy"
           className="absolute w-10 top-2 right-2"
           src={props.teamImage}
           alt={`${props.player.ta} logo`}
