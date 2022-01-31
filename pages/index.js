@@ -35,7 +35,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="grid min-h-screen gap-8 p-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <main className="grid min-h-screen gap-8 p-4 md:p-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {!isLoading ? (
           players.map((player) => (
             <PlayerCard
