@@ -4,7 +4,7 @@ export default function PlayerCard(props) {
       className="flex flex-col w-full rounded-md shadow-lg"
       key={props.player.slug}
     >
-      <div className="relative flex items-center flex-auto overflow-hidden">
+      <div className="relative flex items-center flex-auto pr-2 overflow-hidden">
         <img
           loading="lazy"
           className="absolute nba-team-background"
@@ -36,17 +36,17 @@ export default function PlayerCard(props) {
         className={`flex flex-none text-center border-t-8 border-solid`}
         style={{ borderColor: props.teamColor }}
       >
-        <div className="flex flex-col justify-center w-1/3 p-2 border-r-2 border-gray-400 border-solid align-center">
-          <div className="p-1">PPG</div>
-          <div className="p-1 font-bold">{props.player.pts}</div>
+        <div className="flex flex-col justify-center w-1/3 p-3 border-r-2 border-gray-200 border-solid align-center">
+          <div className="p-1 pb-0">PPG</div>
+          <div className="text-xl font-bold ph-1">{props.player.pts}</div>
         </div>
-        <div className="flex flex-col justify-center w-1/3 p-2 border-r-2 border-gray-400 border-solid align-center">
-          <div className="p-1">RPG</div>
-          <div className="p-1 font-bold">{props.player.reb}</div>
+        <div className="flex flex-col justify-center w-1/3 p-2 border-r-2 border-gray-200 border-solid align-center">
+          <div className="p-1 pb-0">RPG</div>
+          <div className="text-xl font-bold ph-1">{props.player.reb}</div>
         </div>
         <div className="flex flex-col justify-center w-1/3 p-2 align-center">
-          <div className="p-1">APG</div>
-          <div className="p-1 font-bold">{props.player.ast}</div>
+          <div className="p-1 pb-0">APG</div>
+          <div className="text-xl font-bold ph-1">{props.player.ast}</div>
         </div>
       </div>
     </figure>
